@@ -8,8 +8,8 @@ public class SqlTryOut {
     static ArrayList<String> movies = new ArrayList<String>();
     public static void main(String[] args) {
 
-            File movies = new File("src/Resources/imdb-data.csv");
-            String filename = "imdb-data";
+            File movies = new File("src/Resources/imdb_data.csv");
+            String filename = "imdb_data";
 
 
       try {
@@ -51,9 +51,13 @@ public class SqlTryOut {
 
                 String[] value = line.split(";");
 
-                String values = value[0] + "," + value[1] + "," + value[2] + "," + value[3] + "," + value[4] + "," + value[5];
+                String points = "'";
+                String defaultValue = "DEFAULT";
 
-                String insertInto = "INSERT INTO" + filename + "VALUES(" + values + ");";
+                String values = defaultValue + "," + points+ value[0] +points + "," + points+ value[1] +points + "," + points+ value[2] +points + ","
+                        + points+ value[3] +points + "," + points+ value[4] +points + "," + points+ value[5] +points;
+
+                String insertInto = "INSERT INTO " + filename + " VALUES(" + values + ");";
                 System.out.println(insertInto);
 
                 File dml = new File("src/Resources/DML.sql");
